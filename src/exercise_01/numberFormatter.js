@@ -9,12 +9,9 @@ export default function formatNumber(number, option) {
   // * Please do NOT modify the signature of the function.
   const str = number.toFixed(2);
 
-  try {
-    if (option.currency === true) {
-      // return '$ '.concat(str);
-      return `$ ${str}`;
-    }
-  } catch (error) {
+  if (option === undefined) {
+    // return '$ '.concat(str);
     return str;
   }
+  return `$ ${str}`;
 }
