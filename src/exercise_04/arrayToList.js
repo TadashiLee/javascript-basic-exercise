@@ -10,39 +10,17 @@ export default function arrayToList(array) {
   } else if (array.length === 0) {
     throw new Error('Creating list from empty array');
   }
-  let list = new LinkedList();
-  class Node {
-    constructor(val) {
-      this.value = val;
-      this.next = null;
+  const myList = [];
+  for (let i = (array.length - 1); i >= 0; i -= 1) {
+    const list = {};
+    if (i === (array.length - 1)) {
+      list.value = array[i];
+      list.next = null;
+    } else {
+      list.value = array[i];
+      list.next = myList[i + 1];
     }
+    myList[i] = list;
   }
-  class LinkedList {
-    constructor(node) {
-      this.head = node;
-      this.length = 1;
-    }
-    function append(node) {
-      let lastNode = this.findAsIndex(this.length - 1);
-      lastNode.next = node;
-      this.length++;
-    }
-    function findAsIndex(index) {
-      if (index > this.length) {
-        console.log('越界');
-        return
-      }
-      if (index === 0) {
-        return this.head;
-      }
-      var curNode = this.head;
-      while (index && curNode) {
-        index--;
-        curNode = curNode.next;
-      }
-      return curNode;
-    }
-
-  }
-
+  return { value: myList[0].value, next: myList[0].next };
 }
