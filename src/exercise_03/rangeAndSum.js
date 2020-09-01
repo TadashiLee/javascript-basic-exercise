@@ -6,7 +6,7 @@ export function range(start, end) {
   //
   // * Please implement this function and pass all the tests in range_and_array_spec.js.
   // * Please do NOT modify the signature of the function.
-  let numArray = [];
+  const numArray = [];
 
   if (start <= end) {
     for (let i = start; i < end; i += 1) {
